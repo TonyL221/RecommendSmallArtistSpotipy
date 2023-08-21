@@ -10,11 +10,11 @@ class UsefulFunctions:
         sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=client_id,
                                                            client_secret=client_secret))
         self.sp=sp
-        
+
     def cleanUpLink(self,link):
         question_mark_index = link.find("?")
         link.split('https://open.spotify.com/playlist')
-        cleaned = link[:question_mark_index] 
+        cleaned = link[:question_mark_index]
         return str(cleaned)
     
     def get_audio_features(self,track_id):
@@ -36,16 +36,18 @@ class UsefulFunctions:
     def get_target_values(self,setOfTrackIds):
         acousticness,danceability,duration,energy,instrumentalness,liveness,loudness,speechiness,tempo,valence=0,0,0,0,0,0,0,0,0,0
         l = len(setOfTrackIds)
+        #print(setOfTrackIds)
         for track_id in setOfTrackIds:
-            acousticness+= self.get_audio_features(self,track_id)[0]
-            danceability+= self.get_audio_features(self,track_id)[1]
-            duration += self.get_audio_features(self,track_id)[2]
-            energy+= self.get_audio_features(self,track_id)[3]
-            instrumentalness+= self.get_audio_features(self,track_id)[4]
-            liveness+= self.get_audio_features(self,track_id)[5]
-            loudness+= self.get_audio_features(self,track_id)[6]
-            speechiness+= self.get_audio_features(self,track_id)[7]
-            tempo+= self.get_audio_features(self,track_id)[8]
-            valence+= self.get_audio_features(self,track_id)[9] 
+            #print(track_id)
+            acousticness+= self.get_audio_features(track_id)[0]
+            danceability+= self.get_audio_features(track_id)[1]
+            duration += self.get_audio_features(track_id)[2]
+            energy+= self.get_audio_features(track_id)[3]
+            instrumentalness+= self.get_audio_features(track_id)[4]
+            liveness+= self.get_audio_features(track_id)[5]
+            loudness+= self.get_audio_features(track_id)[6]
+            speechiness+= self.get_audio_features(track_id)[7]
+            tempo+= self.get_audio_features(track_id)[8]
+            valence+= self.get_audio_features(track_id)[9] 
         arr = (acousticness/l,danceability/l,duration/l,energy/l,instrumentalness/l,liveness/l,loudness/l,speechiness/l,tempo/l,valence/l)
         return arr
