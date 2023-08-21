@@ -58,13 +58,13 @@ while sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist and i
 
     # Get recommendations based on the input playlist artists
     recommendations = sp.recommendations(seed_tracks=listOfTrackIds, 
-                                    limit=20,max_popularity=40,
+                                    limit=20,max_popularity=40, # Adjust the limit as needed
                                     target_danceability=danceability,
                                     target_energy=energy,
                                     target_instrumentalness=instrumentalness,
                                     target_liveness = liveness,
                                     target_speechiness = speechiness,
-                                    target_valence = valence)  # Adjust the limit as needed
+                                    target_valence = valence) 
 
     # Add tracks from smaller artists to the new playlist
     for track in recommendations['tracks']:
