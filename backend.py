@@ -10,19 +10,7 @@ class UsefulFunctions:
         sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=client_id,
                                                            client_secret=client_secret))
         self.sp=sp
-
-    def max(x0=0,x1=0):
-        if(x0>x1):
-            return x0
-        else:
-            return x1
-
-    def min(x0=0,x1=1):
-        if(x0>x1):
-            return x1
-        else:
-            return x0
-
+        
     def cleanUpLink(self,link):
         question_mark_index = link.find("?")
         link.split('https://open.spotify.com/playlist')
