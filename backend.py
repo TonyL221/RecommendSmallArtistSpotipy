@@ -36,9 +36,7 @@ class UsefulFunctions:
     def get_target_values(self,setOfTrackIds):
         acousticness,danceability,duration,energy,instrumentalness,liveness,loudness,speechiness,tempo,valence=0,0,0,0,0,0,0,0,0,0
         l = len(setOfTrackIds)
-        print(setOfTrackIds)
         for track_id in setOfTrackIds:
-            print(track_id)
             acousticness+= self.get_audio_features(self,track_id)[0]
             danceability+= self.get_audio_features(self,track_id)[1]
             duration += self.get_audio_features(self,track_id)[2]
