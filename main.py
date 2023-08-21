@@ -1,6 +1,6 @@
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
-from a import UsefulFunctions
+from backend import UsefulFunctions
 # Set your Spotify API credentials
 CLIENT_ID = '1dd679e02daa4de4bf2de3d89a86180d'
 CLIENT_SECRET = '88c84edcdcaf4f999fc3d11eed560856'
