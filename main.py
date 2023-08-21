@@ -45,6 +45,8 @@ i=0
 
 #PLAYLIST LENGTH VARIABLE
 lengthOfPlaylist = 25
+#MAX NUMBER OF FOLLWERS VARIABLE
+maxFollowers = 10000
 
 while sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist and i<len(track_ids):
     #for out of bounds errors and iteration problems
@@ -68,11 +70,11 @@ while sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist and i
     for track in recommendations['tracks']:
         artists = [artist['id'] for artist in track['artists']]
         artist_followers = sp.artists(artists)['artists'][0]['followers']['total']
-        if (10000 >= artist_followers>=100) and (sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist):
+        if (maxFollowers >= artist_followers>=100)and(sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist): 
+            #the 100 is for quality control, feel free to change
             track_uri = track['uri']
             sp.playlist_add_items(playlist_id, [track_uri])
                 
     print(i)
     i+=1
     #for ui make a thing that 
-
