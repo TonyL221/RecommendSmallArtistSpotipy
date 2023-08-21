@@ -53,8 +53,6 @@ while sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist and i
     listOfTrackIds = [track_ids[i]]
 
     acousticness,danceability,duration,energy,instrumentalness,liveness,loudness,speechiness,tempo,valence = UF.get_target_values(set(listOfTrackIds))
-    
-    #acousticness,danceability,duration,energy,instrumentalness,liveness,loudness,speechiness,tempo,valence=get_target_values(track_ids)
 
     # Get recommendations based on the input playlist artists
     recommendations = sp.recommendations(seed_tracks=listOfTrackIds, 
