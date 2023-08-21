@@ -32,14 +32,6 @@ playlist_name = 'Smaller Artists Playlist'
 playlist_description = 'Playlist with tracks from smaller artists'
 new_playlist = sp.user_playlist_create(user_id, playlist_name, public=False, description=playlist_description)
 playlist_id = new_playlist['id']
-'''
-# Extract artists from the input playlist
-artist_ids = set()
-for track in input_playlist['items']:
-    for artist in track['track']['artists']:
-        if len(artist_ids)<=5:
-            artist_ids.add(artist['id'])
-'''
 
 # Extract track Ids and make sure no duplicates
 trackIds = set()
@@ -51,7 +43,10 @@ track_ids = list(trackIds)
 #variable for iteration 
 i=0
 
-while sp.playlist_items(playlist_id=playlist_id)['total']<25 and i<len(track_ids):
+#PLAYLIST LENGTH VARIABLE
+lengthOfPlaylist = 25
+
+while sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist and i<len(track_ids):
     #for out of bounds errors and iteration problems
     listOfTrackIds = [track_ids[i]]
 
@@ -73,11 +68,11 @@ while sp.playlist_items(playlist_id=playlist_id)['total']<25 and i<len(track_ids
     for track in recommendations['tracks']:
         artists = [artist['id'] for artist in track['artists']]
         artist_followers = sp.artists(artists)['artists'][0]['followers']['total']
-        if (10000 >= artist_followers>=100) and (sp.playlist_items(playlist_id=playlist_id)['total']<25):
+        if (10000 >= artist_followers>=100) and (sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist):
             track_uri = track['uri']
             sp.playlist_add_items(playlist_id, [track_uri])
                 
     print(i)
     i+=1
-    #for ui make a thing that says 
+    #for ui make a thing that 
 
