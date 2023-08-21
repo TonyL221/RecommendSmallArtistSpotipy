@@ -75,6 +75,6 @@ while sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist and i
             track_uri = track['uri']
             sp.playlist_add_items(playlist_id, [track_uri])
                 
-    print(i)
+    #print(i)'''for debugging'''
     i+=1
     #for ui make a thing that 
