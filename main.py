@@ -75,4 +75,4 @@ while sp.playlist_items(playlist_id=playlist_id)['total']<lengthOfPlaylist and i
                 
     print(i)
     i+=1
-    #for ui make a thing that 
+    #for ui make a thing that prompts for lengthOfPLaylist and maxFollowers
