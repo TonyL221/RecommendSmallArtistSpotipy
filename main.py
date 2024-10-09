@@ -2,8 +2,8 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from backend import UsefulFunctions
 # Set your Spotify API credentials
-CLIENT_ID = '1dd679e02daa4de4bf2de3d89a86180d'
-CLIENT_SECRET = '88c84edcdcaf4f999fc3d11eed560856'
+CLIENT_ID = [clientID]
+CLIENT_SECRET = [clientSecret]
 REDIRECT_URI = 'http://127.0.0.1:8080/callback'  # Set this to a valid redirect URI
 
 # Initialize Spotipy with OAuth authentication
